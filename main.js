@@ -18,5 +18,18 @@ function modelLoaded(){
 function gotPoses(results){
     if(results.length>0){
         console.log(results);
+        noseX=results[0].pose.nose.x;
+        noseY=results[0].pose.nose.y;
+        leftWristX=results[0].pose.leftWrist.x;
+        rightWristX=results[0].pose.rightWrist.x;
+        difference=floor(leftWristX-rightWristX);
     }
+}
+function draw(){
+    background("grey");
+    document.getElementById("square_side").innerHTML="font size of the text will be= "+difference+"px";
+    fill("black");
+    stroke("pink");
+    textSize(difference);
+    text("Sanjh",50,200);
 }
